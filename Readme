@@ -1,0 +1,41 @@
+#  - Installation de l’environnement ALGEM  
+
+Ce dépôt contient des scripts pour installer et configurer un environnement de développement, d’exécution et de test pour l’application **ALGEM** sur Debian.  
+
+## 🔹 Installation  
+
+Pour installer l’environnement ALGEM sur une machine Debian, procédez comme suit :  
+
+1. **Copier le script `install.sh` sur la machine cible**  
+2. **Rendre le script exécutable** :  
+   chmod +x install.sh
+3. **Exécuter le script d’installation :**
+    sudo ./install.sh
+## 🔹 Si vous souhaitez réinitialiser la machine après installation, utilisez le script uninstall.sh :
+
+1. **Copier le script `uninstall.sh sur` la machine**
+2. **Rendre le script exécutable** :
+    chmod +x uninstall.sh
+3. **Exécuter le script de désinstallation :**
+    sudo ./uninstall.sh
+## 🔹 Vérification de l’installation complète
+Après avoir exécuté install.sh, vous pouvez exécuter check_install.sh pour vérifier que tout fonctionne :
+1. **Ce script testera automatiquement si tous les services sont bien installés et actifs.**
+    chmod +x check_install.sh
+    ./check_install.sh
+## 📌 Fichier de configuration important :
+    - Le fichier de configuration Apache se trouve dans /etc/apache2/apache2.conf.
+    - /etc/postgresql/XX/main/pg_hba.conf → Définit les permissions de connexion.
+    - /etc/postgresql/XX/main/postgresql.conf → Configure les ports et performances.
+    - /opt/tomcat9/conf/server.xml → Définit les ports et paramètres réseau de Tomcat.
+## 📌 Remarque sur les versions
+Les scripts installent la dernière version disponible de chaque logiciel, sauf pour Tomcat 9.0.102.
+1. **📌 Installation spécifique : ALGEM nécessite Tomcat 9.0.102 pour éviter des incompatibilités Java EE.**
+    Téléchargement manuel depuis tomcat.apache.org de l'archive
+    Extraction avec tar xzf
+    Déplacement dans /opt/tomcat9
+## 📞 Support
+1. **Si vous rencontrez des problèmes, vérifiez les logs :**
+    cat install.log
+    cat uninstall.log
+    cat check_install.log
